@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-primary { 
+
+
+  @apply bg-cyan-600 p-3  text-white rounded-lg font-semibold
+}
