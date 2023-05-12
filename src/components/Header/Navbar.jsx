@@ -14,6 +14,9 @@ const Navbar = () => {
         <li><a>Item 1</a></li>
        
         <li><a>Item 3</a></li>
+        <div >
+  </div>
+        
       </ul>
     </div>
     <h1 className="btn btn-ghost normal-case text-2xl "> Healing <span className='text-2xl font-extrabold text-cyan-600'> Hands</span>  </h1>
@@ -25,11 +28,17 @@ const Navbar = () => {
       
       <li><a>About</a></li>
       <li><a>Contracts</a></li>
+
     </ul>
+
+
+   
   </div>
-  <div className="navbar-end">
+
+  <div className="navbar-end ">
     <a className="button-primary">Log In</a>
   </div>
+  
 </div>
             
         </div>
