@@ -48,6 +48,11 @@ const Navbar = () => {
       <Link>About</Link>
       <Link>Contract</Link>
 
+      {
+
+        user && <Link to = "/yourAppoint">Your Appoinment</Link>
+      }
+
     </ul>
 
 

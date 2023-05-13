@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaHeart, FaStar } from "react-icons/fa";
 import { FcLike, FcRating } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,7 +29,10 @@ const Doctor = ({data}) => {
     <p className='flex items-center '> <FaStar className='text-yellow-500 mr-2'/> 4.5</p>
 
     <div className="card-actions justify-end">
-      <button className='button-primary'>Appoint Now</button>
+     <Link to = {`/appoint/${data?._id}`}>
+      <button className='button-primary'>Appoint now</button> 
+     
+     </Link>
     </div>
   </div>
 </div>
