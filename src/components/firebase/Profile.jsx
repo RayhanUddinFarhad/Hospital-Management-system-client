@@ -13,7 +13,7 @@ const Profile = () => {
 
 
 
-    
+
 
     const handleUpdateProfile = (e) => {
 
@@ -105,7 +105,7 @@ user.photoURL && <img className='w-96 mx-auto' src={user.photoURL}/>
 
 
 
-                <input type="text" name='name' defaultValue={user.displayName} placeholder="name" className="input w-full" />
+                <input type="text" name='name' defaultValue={user?.displayName} placeholder="name" className="input w-full" />
                 <input type="text" name='email'  placeholder="Email" defaultValue={user?.email}  disabled className="input w-full" />
 
                 </div>
@@ -119,7 +119,7 @@ user.photoURL && <img className='w-96 mx-auto' src={user.photoURL}/>
 
 
 
-                <input name='photo' defaultValue={user.photoURL && user.photoURL}  type="text" placeholder="Photo URL" className="input w-full " />
+                <input name='photo' defaultValue={user?.photoURL && user?.photoURL}  type="text" placeholder="Photo URL" className="input w-full " />
 
                 
 

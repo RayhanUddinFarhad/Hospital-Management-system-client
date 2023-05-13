@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Appointment from './Appointment';
+import Loader from '../../Loader';
 
 const Appointments = () => {
 
     const {user} = useContext(AuthContext)
+    const [loader, setLoader] = useState (false)
 
 
 
@@ -15,9 +17,17 @@ const Appointments = () => {
     const url = `http://localhost:4000/appointments?email=${user.email}`
 
 
-    fetch (url)
-    .then (res => res.json())
-    .then (data => setAppointments(data))
+
+    useEffect(() => {
+        setLoader(true);
+        const url = `http://localhost:4000/appointments?email=${user.email}`;
+        fetch (url)
+        .then (res => res.json())
+        .then (data => {
+            setLoader(false);
+            setAppointments(data)
+        });
+    }, [user.email]);
 
 
 
@@ -34,6 +44,8 @@ const Appointments = () => {
 
 
             <div>
+
+                
 
 
 
@@ -56,6 +68,12 @@ const Appointments = () => {
       {/* row 1 */}
       
       {/* row 2 */}
+
+
+      {
+
+        loader && <Loader></Loader>
+      }
 
       {
 

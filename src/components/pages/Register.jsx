@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
   const {signUp} = useContext (AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/';
 
 
 
@@ -36,6 +39,9 @@ const Register = () => {
 
 
       })
+
+      navigate (from, { replace: true })
+
     })
     .catch (err => { 
 
@@ -86,7 +92,7 @@ const Register = () => {
         
         </div>
         <div className="form-control mt-6">
-          <button className="button-primary">Login</button>
+          <button className="button-primary">Create an account</button>
         </div>
         <p> Already have an account? <Link to = "/logIn"  className='btn-link'> Log In</Link></p>
       </Form>

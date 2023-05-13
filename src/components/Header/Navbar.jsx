@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { FcBusinessman } from 'react-icons/fc';
 
@@ -19,7 +19,19 @@ const Navbar = () => {
 
 
 
-    logOut ();
+    logOut ()
+    .then (() => {
+
+
+      <Navigate to = "/" ></Navigate>
+     })
+     .catch (err => { 
+
+
+
+      
+     })
+  
     
    }
   
