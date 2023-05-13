@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Form, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AppointmentForm = () => {
 
@@ -43,7 +44,21 @@ const AppointmentForm = () => {
 
         })
         .then (res => res.json())
-        .then (data => console.log (data))
+        .then (data => { console.log (data)
+
+
+            Swal.fire(
+                'Good job!',
+                'Your appointment sent successfully .Please wait for serial number and check on "your appointment"  ',
+                'success'
+              )
+
+        
+        
+        
+        
+        
+        })
 
 
 

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Form, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Update = () => {
 
@@ -41,7 +42,17 @@ const Update = () => {
 
         })
         .then (res => res.json())
-        .then (data => console.log (data))
+        .then (data => {console.log (data)
+        
+            Swal.fire(
+                'Good job!',
+                'Appointment updated successfully',
+                'success'
+              )
+
+        
+        
+        })
 
 
 

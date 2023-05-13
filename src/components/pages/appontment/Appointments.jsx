@@ -8,6 +8,8 @@ const Appointments = () => {
     const {user} = useContext(AuthContext)
 
 
+
+
     const [appointment, setAppointments] = useState([])
 
     const url = `http://localhost:4000/appointments?email=${user.email}`
@@ -57,7 +59,7 @@ const Appointments = () => {
 
       {
 
-        appointment && appointment.map (data => <Appointment key = {appointment._id} data = {data}></Appointment>)
+        appointment && appointment.map (data => <Appointment key = {appointment._id} data = {data} setappointment  = {setAppointments}></Appointment>)
       }
 
 

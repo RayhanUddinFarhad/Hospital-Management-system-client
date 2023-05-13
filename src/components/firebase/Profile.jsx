@@ -2,12 +2,18 @@ import React, { useContext } from 'react';
 import { Form } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Profile = () => {
 
 
 
     const {user} = useContext(AuthContext)
+
+
+
+
+    
 
     const handleUpdateProfile = (e) => {
 
@@ -25,6 +31,13 @@ const Profile = () => {
 
         })
         .then (res => {
+
+
+            Swal.fire(
+                'Good job!',
+                'Profile updated successfully',
+                'success'
+              )
 
 
 
