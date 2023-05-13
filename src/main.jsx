@@ -13,6 +13,7 @@ import AuthProvider from './components/provider/AuthProvider.jsx';
 import AppointmentForm from './components/pages/appontment/AppointmentForm.jsx';
 import Appointments from './components/pages/appontment/Appointments.jsx';
 import PrivateRoutes from './components/routes/PrivateRoutes.jsx';
+import Update from './components/pages/appontment/Update.jsx';
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,12 @@ const router = createBrowserRouter([
         path : "/yourAppoint",
         element : <Appointments></Appointments>,
         // loader : () => fetch (`http://localhost:4000/appointments`)
+      },
+      {
+        path : "/update/:id",
+
+        element  : <Update></Update>,
+        loader : ({params}) => fetch (`http://localhost:4000/appointments/${params.id}`)
       }
     ]
   },

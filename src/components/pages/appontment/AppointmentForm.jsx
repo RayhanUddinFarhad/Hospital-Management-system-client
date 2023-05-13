@@ -27,6 +27,7 @@ const AppointmentForm = () => {
           email,
           phone,
           date,
+          doctorName : data.name
         };
       
        
@@ -86,6 +87,7 @@ const AppointmentForm = () => {
                    <input name='date' type="date" placeholder="Date" className="input w-full " />
 
                    </div>
+
 
                    <h1 className='font-bold text-3xl'>Price : ${data?.visitingPrice} </h1>
 

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Appointment from './Appointment';
 
 const Appointments = () => {
 
@@ -17,12 +18,56 @@ const Appointments = () => {
     .then (data => setAppointments(data))
 
 
+
+
+    
+
     return (
         <div>
             
 
 
             <h1> Your Total appointment : {appointment.length}</h1>
+
+
+
+            <div>
+
+
+
+            <div className="overflow-x-auto">
+  <table className="table w-full table-normal">
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Doctor name</th>
+
+        <th> Patient Name</th>
+        <th>email</th>
+        <th>Phone</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+      
+      {/* row 2 */}
+
+      {
+
+        appointment && appointment.map (data => <Appointment key = {appointment._id} data = {data}></Appointment>)
+      }
+
+
+
+
+
+    </tbody>
+  </table>
+</div>
+            </div>
         </div>
     );
 };
