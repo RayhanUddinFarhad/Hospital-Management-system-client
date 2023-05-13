@@ -12,6 +12,7 @@ import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/provider/AuthProvider.jsx';
 import AppointmentForm from './components/pages/appontment/AppointmentForm.jsx';
 import Appointments from './components/pages/appontment/Appointments.jsx';
+import PrivateRoutes from './components/routes/PrivateRoutes.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       {
 
         path :"/appoint/:id",
-        element : <AppointmentForm></AppointmentForm>,
+        element : <PrivateRoutes><AppointmentForm></AppointmentForm></PrivateRoutes>,
         loader  : ({params}) => fetch (`http://localhost:4000/doctors/${params.id}`)
       },
 

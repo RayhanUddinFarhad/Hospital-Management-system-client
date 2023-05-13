@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const LogIn = () => {
 
   const {user, signIn} = useContext (AuthContext)
+
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/';
+
   console.log (user)
 
 
@@ -20,6 +25,8 @@ const LogIn = () => {
     .then (res => {
 
       const logged = res.user;
+      navigate (from, { replace: true })
+
     })
     .catch (err => { 
 
