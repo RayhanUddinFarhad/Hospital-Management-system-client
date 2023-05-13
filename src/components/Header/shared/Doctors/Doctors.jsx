@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Doctor from './Doctor';
+import Loader from '../../../Loader';
 
 const Doctors = () => {
 
     const [doctor, setdoctor] = useState  ([])
+    const [loader, setLoader] = useState  (false)
 
+  
 
 
     useEffect(() => { 
 
+        setLoader (true)
+
         fetch ('http://localhost:4000/doctors')
         .then (response => response.json())
-        .then (data => setdoctor(data))
+        .then (data => {setdoctor(data)
+
+            setLoader (false)
+        
+        
+        
+        })
     }, [])
 
 
@@ -31,6 +42,15 @@ const Doctors = () => {
 
 </div>
 
+<div>
+
+
+    {
+
+        loader && <Loader></Loader>
+    }
+</div>
+
 
 <div className='grid lg:grid-cols-3 gap-10'>
 
@@ -39,6 +59,7 @@ const Doctors = () => {
 
 doctor?.map(doctor => <Doctor key={doctor._id} data = {doctor}></Doctor>)
     }
+
 
 
 
